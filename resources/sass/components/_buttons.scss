@@ -1,0 +1,11 @@
+
+//==========  Buttons ==========//
+
+.btn {
+    @apply py-3 px-6 rounded py-3 px-6 text-white font-bold bg-primary-500;
+
+    &:hover,
+    &:focus {
+        @apply bg-pink-700;
+    }
+}
