@@ -5,12 +5,12 @@
             "url": "/"
         },
         {
-            "label": "Components",
-            "url": "/components/"
+            "label": "Test",
+            "url": "/test/"
         },
         {
-            "label": "Blog",
-            "url": "/blog/"
+            "label": "Components",
+            "url": "/components/"
         },
         {
             "label": "Contact",

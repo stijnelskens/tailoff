@@ -1,6 +1,10 @@
 
 //==========  Globals ==========//
 
+::selection {
+  @apply bg-primary-200 text-primary-700;
+}
+
 .container {
-    @apply mx-auto;
+  @apply mx-auto;
 }

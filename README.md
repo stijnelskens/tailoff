@@ -24,3 +24,9 @@ Node `>=` v8.9.0
 ```
 yarn install
 ```
+
+## Usage
+
+```
+yarn dev
+```

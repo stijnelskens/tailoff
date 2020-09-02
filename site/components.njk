@@ -1,24 +1,60 @@
 ---
 layout: default
 meta_title: Components
-meta_description: About page description
+meta_description: Components
 body_class: components
 title: Components
 ---
 
 <main id="main" class="main container flex flex-1 flex-col py-10 lg:py-20 focus:outline-none" tabindex="-1">
 
-    <article id="container-centre" class="column centre flex-1">
+    <section id="container-centre" class="column centre flex-1" aria-label="Components">
 
-        <header>
-            <h1 class="page-title">{{ title }}</h1>
-        </header>
+        <h1 class="page-title text-3xl md:text-center md:text-5xl mb-16 lg:mb-24 lg:text-6xl">{{ title }}</h1>
 
-        <div class="content">
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus.</p><p> Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil dolor ipsum voluptatum dicta eveniet commodi molestiae! Suscipit, magnam cumque, illum ab amet ipsum deserunt distinctio est dolore dolor ad ipsa cupiditate minus soluta, possimus accusamus. Ipsa facilis sint, beatae aperiam enim expedita voluptas dolores suscipit reiciendis similique alias, odio repellendus placeat asperiores error laboriosam eligendi accusantium in eos! Dolores labore excepturi doloremque. Rem ipsa quae tempore dignissimos doloribus recusandae quam quibusdam mollitia ex voluptas, repellat dolor et beatae sint nesciunt ad cupiditate cum debitis dolorum earum? Error adipisci optio in ea accusamus incidunt eligendi consequatur, quod impedit dolorem atque quaerat?</p>
+        <div class="posts lg:flex flex-1">
+
+            {% for post in collections.components %}
+
+                <article class="group mb-8 mx-4 flex-1 bg-white overflow-hidden rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-2">
+                    {# featured post image & category #}
+                    {% if post.data.featured_image %}
+                        <a class="featured-image-link block relative overflow-hidden" href="{{ post.url }}">
+                            {# category link #}
+                            <ul class="absolute bottom-0 left-0 flex p-8 z-10">
+                                {% for item in post.data.tags %}
+                                    {%- if item != "blog" -%}
+                                        <li class="mr-2">
+                                            <span class="inline-block bg-primary-500 px-4 py-2 text-white text-xs font-bold rounded">{{ item | capitalize }}</span>
+                                        </li>
+                                    {%- endif -%}
+                                {% endfor %}
+                            </ul>
+                            {# <figure>
+                                <img data-lazy="{{ post.data.featured_image }}" class="block" alt="{{ post.data.image_caption }}">
+                            </figure> #}
+                        </a>
+                    {% endif %}
+
+                    <div class="p-8">
+                        <h2 class="text-2xl mb-0"><a class="block text-gray-900 group-hover:text-primary-500" href="{{ post.url }}">{{ post.data.title }}</a></h2>
+                        {# <div class="text-sm text-gray-600 md:flex mb-4">
+                            <p class="author">By {{ site.author.name }}</p>
+                            <p class="hidden md:block px-2">—</p>
+                            <time datetime="{{ post.date }}">
+                                {{ post.date | dateDisplay }}
+                            </time>
+                        </div> #}
+                    </div>
+
+                </article>
+
+            {% endfor %}
+
         </div>
 
-    </article>
+    </section>
 
 </main>
+
+
